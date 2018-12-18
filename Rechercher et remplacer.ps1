@@ -1,6 +1,9 @@
 $Rechercher = $Args[0]
 $Changer = $Args[1]
 $fichiers = get-childItem -include *.txt, *.csv, *.doc, -recurse
+forEach(){
+    
+}
 $message = read-host -prompt "remplacer la chaine $Changer avec la valeur placer dans le fichier $fichiers (o/n)"
 
 
