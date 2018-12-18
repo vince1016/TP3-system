@@ -6,6 +6,8 @@ $stringToReplace = Read-Host -Prompt 'Input the string to change'
 $replacementString = Read-Host -Prompt 'Input the string you want insted'
 
 # On boucle sur tous les fichiers pour effectuer les changements
+$selec = Read-Host -Prompt 'y/n'
+if($selec -eq 'y'){
 foreach ($file in $files)
 {
     $fileContent = Get-Content $file.fullName
@@ -14,4 +16,7 @@ foreach ($file in $files)
         (Get-Content $file.fullName) | Foreach-Object {$_ -replace $stringToReplace, $replacementString} | Set-Content $file.fullName
         Write-Host "$($file.fullName) -- $stringToReplace a été remplacé par $replacementString" -ForegroundColor "Green"
     }
+ 
+    }
 }
+else{Write-Host "$($file.fullName) -- $stringToReplace n'a pas été remplacé par $replacementString" -ForegroundColor "red"}
